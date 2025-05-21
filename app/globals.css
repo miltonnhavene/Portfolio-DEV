@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+*{
+  font-family: Ovo;
+  color: white;
+}
+
+body{
+  background-color: rgba(0, 0, 0);
+}
