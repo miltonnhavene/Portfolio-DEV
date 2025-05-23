@@ -18,28 +18,28 @@ const Navbar = () => {
   
   return (
     <>
-  <nav className='w-full fixed top-0 px-5 lg:px-10 xl:px-[8%] py-4 
+  <nav className='w-full fixed top-0 px-5 lg:px-10 xl:px-[10%] py-4 
     flex items-center justify z-50'>
 
     <div className="w-1/3 text-xl cursor-pointer" >
-        <h1 className="text-3xl">João Nhavene</h1>
+        <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-white via-purple-800 to-gray-800">João Nhavene</h1>
     </div>
 
-       <ul className='hidden md:flex items-center gap-6 justify-center flex-grow
-       px-4 py-3'>
-        <li><a className="font-ovo text-lg hover:bg-purple-500 px-7 py-4 rounded-full text-white" href="#home">Home</a></li>
-        <li><a className="font-ovo text-lg hover:bg-purple-500 px-7 py-4 rounded-full text-white" href="#about">About Me</a></li>
-        <li><a className="font-ovo text-lg hover:bg-purple-500 px-7 py-4 rounded-full text-white" href="#projects">Projects</a></li>
+       <ul className='hidden md:flex items-center gap-4 justify-center flex-grow
+       px-6 py-3 border border-1 rounded-full text-white w-[600px]'>
+        <li><a className="font-ovo text-lg  px-7 py-4 rounded-full text-white hover:text-purple-300" href="#home">Página Inicial</a></li>
+        <li><a className="font-ovo text-lg  px-7 py-4 rounded-full text-white hover:text-purple-300" href="#about">Sobre Mim</a></li>
+        <li><a className="font-ovo text-lg  px-7 py-4 rounded-full text-white hover:text-purple-300" href="#projects">Projectos</a></li>
        </ul>
 
        <div className='w-1/3 flex justify-end gap-4'>
 
             <button className="cursor-pointer">
-              <BsMoon size={24} />
+              <BsMoon size={25} className="text-white" />
             </button>
 
-            <a href="#contact" className='hidden lg:flex items-center gap-3 px-10
-            py-2.5 border border-gray-500 rounded-full ml-4 hover:bg-purple-500 px-7 py-4 rounded-full text-white'>Contact <MdArrowOutward/>
+            <a href="#contact" className='hidden lg:flex items-center gap-2
+             border border-gray-1 ml-2 hover:bg-blue-500 px-6 py-3 rounded-full text-white'>Contactar-me<MdArrowOutward/>
             </a>
 
             <button className="block md:hidden ml-3" onClick={openMenu}>
