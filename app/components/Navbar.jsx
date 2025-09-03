@@ -1,10 +1,9 @@
 'use client';
 
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { BsMoon, BsSun } from "react-icons/bs";
+import React, { useState } from "react";
+import { BsMoon } from "react-icons/bs";
 import { IoMenu, IoClose } from "react-icons/io5";
-import { useTheme } from "next-themes";
 
 const NAV = [
   { href: "/#home",     label: "Página Inicial" },
@@ -14,22 +13,14 @@ const NAV = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
-  const isDark = resolvedTheme === "dark";
 
   return (
     <>
       <nav
         className="sticky top-2 md:top-4 z-50 mx-auto w-[min(1200px,92%)]
-                   rounded-2xl border px-4 py-3 md:px-6 md:py-4 flex items-center gap-4 md:gap-6
-                   backdrop-blur-md shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)]
-                   /* light (padrão) */
-                   border-slate-900/10 bg-white/70 text-slate-900
-                   /* dark */
-                   dark:border-white/10 dark:bg-slate-900/70 dark:text-white"
+                   rounded-2xl border border-white/10 bg-slate-900/70 backdrop-blur-md
+                   px-4 py-3 md:px-6 md:py-4 flex items-center gap-4 md:gap-6
+                   shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)]"
       >
         <div className="min-w-0 flex-1 md:w-1/3 md:min-w-[200px]">
           <h1 className="font-display text-lg sm:text-xl md:text-2xl font-extrabold tracking-tight
@@ -44,12 +35,8 @@ const Navbar = () => {
             <li key={i.href}>
               <a
                 href={i.href}
-                className="px-5 py-2 rounded-full text-sm font-medium
-                           /* light */
-                           text-slate-700/90 hover:text-slate-900 hover:bg-slate-900/5
-                           /* dark */
-                           dark:text-white/90 dark:hover:text-white dark:hover:bg-white/5
-                           transition"
+                className="px-5 py-2 rounded-full text-sm font-medium text-white/90
+                           hover:text-white hover:bg-white/5 transition"
               >
                 {i.label}
               </a>
@@ -58,18 +45,12 @@ const Navbar = () => {
         </ul>
 
         <div className="flex items-center gap-2 md:gap-3">
-          {/* Botão tema */}
           <button
-            type="button"
-            aria-label={`Alternar para tema ${isDark ? 'claro' : 'escuro'}`}
-            onClick={() => setTheme(isDark ? 'light' : 'dark')}
-            className="grid h-10 w-10 place-items-center rounded-full transition
-                       /* light */
-                       ring-1 ring-slate-900/10 bg-slate-900/5 hover:bg-slate-900/10 text-slate-900
-                       /* dark */
-                       dark:ring-white/15 dark:bg-white/5 dark:hover:bg-white/10 dark:text-white"
+            aria-label="Alternar tema"
+            className="grid h-10 w-10 place-items-center rounded-full
+                       ring-1 ring-white/15 bg-white/5 hover:bg-white/10 transition"
           >
-            {mounted ? (isDark ? <BsSun size={18} /> : <BsMoon size={18} />) : null}
+            <BsMoon size={18} aria-hidden />
           </button>
 
           <Link
@@ -85,9 +66,8 @@ const Navbar = () => {
 
           <button
             aria-label="Abrir menu"
-            className="md:hidden grid h-10 w-10 place-items-center rounded-full transition
-                       ring-1 ring-slate-900/10 bg-slate-900/5 hover:bg-slate-900/10
-                       dark:ring-white/15 dark:bg-white/5 dark:hover:bg-white/10"
+            className="md:hidden grid h-10 w-10 place-items-center rounded-full
+                       ring-1 ring-white/15 bg-white/5 hover:bg-white/10 transition"
             onClick={() => setOpen(true)}
           >
             <IoMenu size={20} />
@@ -95,8 +75,72 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* sheet mobile (sem mudanças relevantes) */}
-      {/* ... */}
+      <div
+        className={`fixed inset-0 z-[60] md:hidden transition
+                    ${open ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
+      >
+        <div
+          className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity
+                      ${open ? 'opacity-100' : 'opacity-0'}`}
+          onClick={() => setOpen(false)}
+        />
+
+        {/* sheet */}
+        <div
+          className={`mx-auto w-[min(1200px,92%)] mt-4 transition-all
+                      ${open ? 'translate-y-0 opacity-100' : '-translate-y-3 opacity-0'}`}
+        >
+          <div
+            className="relative rounded-3xl p-[2px]
+                       bg-gradient-to-br from-cyan-500/60 via-fuchsia-500/40 to-indigo-500/60
+                       shadow-[0_20px_60px_-15px_rgba(0,0,0,.6)]"
+          >
+            <div className="rounded-[calc(1.5rem-2px)] bg-slate-900/70 ring-1 ring-white/10 backdrop-blur-xl p-4">
+              {/* top row */}
+              <div className="flex items-center justify-between">
+                <span className="font-display text-lg font-bold">Menu</span>
+                <button
+                  aria-label="Fechar menu"
+                  className="grid h-10 w-10 place-items-center rounded-full
+                             ring-1 ring-white/15 bg-white/5 hover:bg-white/10 transition"
+                  onClick={() => setOpen(false)}
+                >
+                  <IoClose size={20} />
+                </button>
+              </div>
+
+              {/* links */}
+              <ul className="mt-3 grid gap-2">
+                {NAV.map(i => (
+                  <li key={i.href}>
+                    <a
+                      href={i.href}
+                      onClick={() => setOpen(false)}
+                      className="block w-full px-4 py-3 rounded-xl text-base font-medium
+                                 text-white/90 hover:text-white hover:bg-white/5 transition"
+                    >
+                      {i.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-4">
+                <Link
+                  href="/contact"
+                  onClick={() => setOpen(false)}
+                  className="inline-flex w-full items-center justify-center rounded-xl px-5 py-3 font-semibold
+                             bg-gradient-to-r from-sky-500 to-fuchsia-500
+                             shadow-[0_10px_30px_-10px_rgba(56,189,248,.6)]
+                             hover:shadow-[0_16px_40px_-12px_rgba(217,70,239,.55)]
+                             transition-transform active:scale-[.98]"
+                >
+                  Contacte-me
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

@@ -7,7 +7,6 @@ const About = () => {
       className="scroll-mt-28 md:scroll-mt-32 px-4 sm:px-6 py-10 md:py-20"
     >
       <div className="mx-auto max-w-[980px] md:max-w-4xl">
-        {/* header */}
         <div className="mb-5 sm:mb-6">
           <div className="flex items-center gap-3">
             <span className="text-xs sm:text-sm font-semibold uppercase tracking-[.25em] text-white/80">
@@ -20,7 +19,7 @@ const About = () => {
           </h2>
         </div>
 
-        {/* card */}
+      
         <div
           className="
             relative rounded-3xl p-[2px]
@@ -34,7 +33,6 @@ const About = () => {
           <div className="rounded-[calc(1.5rem-2px)] border border-white/10 bg-slate-900/70 backdrop-blur-xl">
             <div className="grid items-center gap-6 sm:gap-8 p-5 sm:p-6 md:grid-cols-2 md:p-8">
 
-              {/* FOTO (primeiro no mobile, sem espaço extra) */}
               <div className="order-first md:order-none mt-6 md:mt-0">
                 <div className="mx-auto max-w-[300px] sm:max-w-[320px]">
                   <div className="relative aspect-[3/4] overflow-hidden rounded-[1.4rem] sm:rounded-[1.6rem] bg-slate-800 ring-1 ring-white/10 shadow-[0_24px_72px_-20px_rgba(59,130,246,.38)]">

@@ -69,7 +69,8 @@ export default function Skills() {
                     </div>
 
                     <p className="mt-3 text-white/80 text-sm leading-relaxed text-justify">
-                        Com uma base sólida em desenvolvimento de software, levo uma visão cuidadosa e mantenho a mentalidade de “aprender sempre”. Estou constantemente a aprender e a evoluir, acompanhando as melhores práticas e tendências do sector, para entregar soluções estáveis, acessíveis e com foco na experiência do utilizador. 
+                    Com uma base sólida em desenvolvimento de software, levo uma visão cuidadosa e mantenho a mentalidade de “aprender sempre”. Estou constantemente a aprender e a evoluir, acompanhando as melhores práticas e tendências do sector, para entregar soluções estáveis, acessíveis e com foco na experiência do utilizador. 
+
                     </p>
                 </div>
 
@@ -113,7 +114,8 @@ export default function Skills() {
                             </div>
 
                             <p className="mt-3 text-white/80 text-sm leading-relaxed text-justify">
-                                Tenho paixão por transformar problemas em soluções com código. Atuo em toda a stack — do front-end ao back-end e às integrações de APIs — sempre com foco em clareza e performance. Gosto de enfrentar desafios e traduzi-los em resultados práticos.
+                            Tenho paixão por transformar problemas em soluções com código. Atuo em toda a stack — do front-end ao back-end e às integrações de APIs — sempre com foco em clareza e performance. Gosto de enfrentar desafios e traduzi-los em resultados práticos.
+
                             </p>
 
                             <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 gap-3">

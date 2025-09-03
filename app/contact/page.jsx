@@ -58,19 +58,6 @@ export default function ContactPage() {
                      shadow-[0_20px_60px_-15px_rgba(0,0,0,.6)]
                      transition-transform duration-300 hover:-translate-y-1"
         >
-          <Link
-            href="/#home"
-            className="absolute left-3 top-3 md:left-5 md:top-5 z-10
-                       inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold
-                       bg-white/5 text-white/90 ring-1 ring-white/10 backdrop-blur-md
-                       hover:bg-white/10 hover:ring-white/25 hover:text-white
-                       transition"
-            title="Voltar à página inicial"
-            aria-label="Voltar à página inicial"
-          >
-            ← Voltar
-          </Link>
-
           <div className="rounded-[calc(1.5rem-2px)] bg-slate-900/70 ring-1 ring-white/10 backdrop-blur-xl overflow-hidden">
             <span className="pointer-events-none absolute -inset-10 -z-10 rounded-[2rem]
                              bg-[radial-gradient(40%_40%_at_10%_0%,rgba(34,211,238,.22),transparent_60%),radial-gradient(35%_35%_at_100%_60%,rgba(99,102,241,.22),transparent_60%)]
@@ -141,13 +128,6 @@ export default function ContactPage() {
               </div>
             </form>
           </div>
-        </div>
-
-        <div className="mt-8 text-center text-white/70 text-sm">
-          Também me encontra no{" "}
-          <a href="https://github.com/miltonnhavene" className="underline hover:text-white">GitHub</a>{" "}
-          e{" "}
-          <a href="https://www.linkedin.com/in/joao-nhavene-4578272b0/" className="underline hover:text-white">LinkedIn</a>.
         </div>
       </div>
     </main>
