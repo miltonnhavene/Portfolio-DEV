@@ -1,4 +1,3 @@
-// app/contact/page.jsx
 "use client";
 
 import React, { useState } from "react";
@@ -144,7 +143,6 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* rodapé opcional */}
         <div className="mt-8 text-center text-white/70 text-sm">
           Também me encontra no{" "}
           <a href="https://github.com/miltonnhavene" className="underline hover:text-white">GitHub</a>{" "}

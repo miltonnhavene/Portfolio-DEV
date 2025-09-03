@@ -1,6 +1,7 @@
 import React from "react";
 
 const softwares = [
+    "VS Code",
     "IntelliJ IDEA",
     "Postman",
     "Figma",
@@ -10,8 +11,8 @@ const softwares = [
 const tecnologias = [
     "JavaScript",
     "TypeScript",
+    "Java",
     "Angular",
-    "React.js",
     "Next.js",
     "Node.js",
     "Spring Boot",
@@ -36,7 +37,6 @@ function Pill({ label }) {
             aria-label={label}
             title={label}
         >
-            {/* glow sutil */}
             <span className="pointer-events-none absolute inset-0 -z-10 rounded-full opacity-0
                        bg-[radial-gradient(60%_100%_at_20%_0%,rgba(56,189,248,.25),transparent_70%)]
                        transition-opacity duration-200 group-hover:opacity-100" />
@@ -69,11 +69,7 @@ export default function Skills() {
                     </div>
 
                     <p className="mt-3 text-white/80 text-sm leading-relaxed text-justify">
-                        Gosto profundamente de resolver problemas por meio de código — do front-end
-                        ao back-end e às APIs. Nenhum projeto é muito desafiador para mim.
-
-                        Como um desenvolvedor criativo, crio experiências digitais intuitivas
-                        usando um conjunto diversificado de ferramentas e linguagens.
+                        Com uma base sólida em desenvolvimento de software, levo uma visão cuidadosa e mantenho a mentalidade de “aprender sempre”. Estou constantemente a aprender e a evoluir, acompanhando as melhores práticas e tendências do sector, para entregar soluções estáveis, acessíveis e com foco na experiência do utilizador. 
                     </p>
                 </div>
 
@@ -91,7 +87,7 @@ export default function Skills() {
                             </div>
 
                             <p className="mt-3 text-white/80 text-sm leading-relaxed text-justify">
-                                Com mais de 2 anos de experiência na criação de projectos de software,
+                                Com menos de 1 ano de experiência na criação de projectos de software,
                                 desenvolvi um entendimento intuitivo de como os melhores produtos são
                                 projetados. Abaixo estão alguns dos softwares que utilizo no dia a dia.
                             </p>
@@ -117,8 +113,7 @@ export default function Skills() {
                             </div>
 
                             <p className="mt-3 text-white/80 text-sm leading-relaxed text-justify">
-                                Gosto profundamente de resolver problemas por meio de código — do front-end
-                                ao back-end e às APIs. Nenhum projeto é muito desafiador para mim.
+                                Tenho paixão por transformar problemas em soluções com código. Atuo em toda a stack — do front-end ao back-end e às integrações de APIs — sempre com foco em clareza e performance. Gosto de enfrentar desafios e traduzi-los em resultados práticos.
                             </p>
 
                             <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 gap-3">
