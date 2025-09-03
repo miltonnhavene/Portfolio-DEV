@@ -2,20 +2,25 @@ import React from 'react';
 
 const About = () => {
   return (
-    <section id="about" className="px-6 py-12 md:py-25">
+    <section
+      id="about"
+      className="scroll-mt-28 md:scroll-mt-32 px-4 sm:px-6 py-10 md:py-20"
+    >
       <div className="mx-auto max-w-[980px] md:max-w-4xl">
-        <div className="mb-6">
+        {/* header */}
+        <div className="mb-5 sm:mb-6">
           <div className="flex items-center gap-3">
             <span className="text-xs sm:text-sm font-semibold uppercase tracking-[.25em] text-white/80">
               Sobre mim
             </span>
-            <span className="h-[2px] w-24 bg-emerald-400 rounded-full"></span>
+            <span className="h-[2px] w-24 bg-emerald-400 rounded-full" />
           </div>
-          <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight">
+          <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-balance">
             SAIBA MAIS SOBRE MIM
           </h2>
         </div>
 
+        {/* card */}
         <div
           className="
             relative rounded-3xl p-[2px]
@@ -27,11 +32,26 @@ const About = () => {
           "
         >
           <div className="rounded-[calc(1.5rem-2px)] border border-white/10 bg-slate-900/70 backdrop-blur-xl">
-            <div className="grid items-center gap-8 p-6 md:grid-cols-2 md:p-8">
-              <div className="w-100">
+            <div className="grid items-center gap-6 sm:gap-8 p-5 sm:p-6 md:grid-cols-2 md:p-8">
+
+              {/* FOTO (primeiro no mobile, sem espaço extra) */}
+              <div className="order-first md:order-none mt-6 md:mt-0">
+                <div className="mx-auto max-w-[300px] sm:max-w-[320px]">
+                  <div className="relative aspect-[3/4] overflow-hidden rounded-[1.4rem] sm:rounded-[1.6rem] bg-slate-800 ring-1 ring-white/10 shadow-[0_24px_72px_-20px_rgba(59,130,246,.38)]">
+                    <img
+                      src="/images/Eu.JPG"
+                      alt="Foto"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="w-full">
                 <h3 className="sr-only">Sobre Mim</h3>
 
-                <h4 className="text-lg md:text-xl font-semibold text-white leading-snug">
+                <h4 className="text-base sm:text-lg md:text-xl font-semibold text-white leading-snug
+                 text-center md:text-left max-w-prose mx-auto md:mx-0">
                   <span className="relative after:content-['|'] after:ml-1 mr-1 after:text-sky-400 after:font-bold after:animate-blink">
                     Software Engineer
                   </span>
@@ -40,25 +60,15 @@ const About = () => {
                   </span>
                 </h4>
 
-                <p className="mt-4 text-gray-300 leading-relaxed text-justify">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam laboriosam in repellat
-                  quidem ab! Rem voluptatum accusamus obcaecati, velit neque nihil veritatis ab voluptas
-                  tempora magni quae placeat dolore nesciunt! Lorem ipsum dolo5r sit amet consectetur
-                  adipisicing elit.
+                <p className="mt-4 text-white/85 leading-relaxed text-justify max-w-prose mx-auto md:mx-0">
+                  Engenheiro de software com experiência em varias tecnologias, focado em Front-end (Next.js e Angular) e Back-end (Spring Boot). Transformo ideias em interfaces limpas, responsivas e acessíveis, com atenção à performance e aos detalhes. Busco sempre unir design e engenharia para transformar problemas reais em soluções bonitas, rápidas e intuitivas.
                 </p>
               </div>
 
-              <div className="mt-20 order-first md:order-none">
-                <div className="mx-auto max-w-[320px]">
-                  <div className="relative aspect-[3/4] overflow-hidden rounded-[1.6rem] bg-slate-800 ring-1 ring-white/10 shadow-[0_24px_72px_-20px_rgba(59,130,246,.38)]">
-                    <img src="/images/Eu.JPG" alt="Foto" className="h-full w-full object-cover" />
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
-      </div> 
+      </div>
     </section>
   );
 };

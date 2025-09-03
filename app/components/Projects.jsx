@@ -65,7 +65,6 @@ const Projects = () => {
                          transition-transform duration-300 hover:-translate-y-1"
             >
               <div className="h-full overflow-hidden rounded-[calc(1.5rem-2px)] bg-slate-900/70 ring-1 ring-white/10 backdrop-blur-xl">
-                {/* imagem */}
                 <div className="relative overflow-hidden">
                   <img
                     src={p.image}
@@ -74,25 +73,21 @@ const Projects = () => {
                                transition-transform duration-500 ease-out group-hover:scale-105"
                     loading="lazy"
                   />
-                  {/* gradiente sutil por cima da imagem */}
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
                 </div>
 
-                {/* conteúdo */}
                 <div className="p-5">
                   <h3 className="text-lg font-bold">{p.title}</h3>
-                  <p className="mt-2 text-sm text-white/80 leading-relaxed">
+                  <p className="mt-2 text-sm text-white/80 leading-relaxed ">
                     {p.description}
                   </p>
 
-                  {/* techs */}
                   <div className="mt-4 flex flex-wrap gap-2">
                     {p.techs.map((t) => (
                       <Pill key={t}>{t}</Pill>
                     ))}
                   </div>
 
-                  {/* botão */}
                   <div className="mt-6">
                     <a
                       href={p.repo}
@@ -110,7 +105,6 @@ const Projects = () => {
                 </div>
               </div>
 
-              {/* glow externo sutil (igual vibe dos outros cards) */}
               <span className="pointer-events-none absolute -inset-8 -z-10 rounded-[2rem]
                                bg-[radial-gradient(40%_40%_at_10%_0%,rgba(34,211,238,.22),transparent_60%),radial-gradient(35%_35%_at_100%_60%,rgba(99,102,241,.22),transparent_60%)]
                                blur-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" />

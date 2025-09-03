@@ -68,7 +68,7 @@ export default function Skills() {
                         <span className="h-1 w-1 rounded-full bg-sky-400/70 shadow-[0_0_24px_2px_rgba(56,189,248,.6)]" />
                     </div>
 
-                    <p className="mt-3 text-white/80 text-sm leading-relaxed">
+                    <p className="mt-3 text-white/80 text-sm leading-relaxed text-justify">
                         Gosto profundamente de resolver problemas por meio de código — do front-end
                         ao back-end e às APIs. Nenhum projeto é muito desafiador para mim.
 
@@ -90,7 +90,7 @@ export default function Skills() {
                                 <span className="h-2 w-2 rounded-full bg-emerald-400/70 shadow-[0_0_24px_2px_rgba(52,211,153,.6)]" />
                             </div>
 
-                            <p className="mt-3 text-white/80 text-sm leading-relaxed">
+                            <p className="mt-3 text-white/80 text-sm leading-relaxed text-justify">
                                 Com mais de 2 anos de experiência na criação de projectos de software,
                                 desenvolvi um entendimento intuitivo de como os melhores produtos são
                                 projetados. Abaixo estão alguns dos softwares que utilizo no dia a dia.
@@ -116,7 +116,7 @@ export default function Skills() {
                                 <span className="h-2 w-2 rounded-full bg-sky-400/70 shadow-[0_0_24px_2px_rgba(56,189,248,.6)]" />
                             </div>
 
-                            <p className="mt-3 text-white/80 text-sm leading-relaxed">
+                            <p className="mt-3 text-white/80 text-sm leading-relaxed text-justify">
                                 Gosto profundamente de resolver problemas por meio de código — do front-end
                                 ao back-end e às APIs. Nenhum projeto é muito desafiador para mim.
                             </p>
