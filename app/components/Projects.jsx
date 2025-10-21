@@ -1,3 +1,7 @@
+"use client";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaChevronDown, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import React from "react";
 
 const projects = [
@@ -7,7 +11,8 @@ const projects = [
     description:
       "Buscador de perfis do GitHub com tema dark/light, cache e paginação. Foco em acessibilidade e performance.",
     techs: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-    repo: "#", // troque pelo link do repositório
+    repo: "https://github.com/miltonnhavene/devfinder",
+    live: "#",
   },
   {
     title: "TaskFlow",
@@ -15,7 +20,8 @@ const projects = [
     description:
       "Kanban de tarefas com drag-and-drop, filtros por etiqueta e sincronização local-first.",
     techs: ["React", "Zustand", "Vite", "Tailwind CSS"],
-    repo: "#",
+    repo: "https://github.com/miltonnhavene/taskflow",
+    live: "#",
   },
   {
     title: "Pulse Analytics",
@@ -23,97 +29,116 @@ const projects = [
     description:
       "Dashboard de métricas com gráficos em tempo real e integração com API REST.",
     techs: ["Next.js", "Node.js", "PostgreSQL", "Tailwind CSS"],
-    repo: "#",
+    repo: "https://github.com/miltonnhavene/pulse-analytics",
+    live: "#",
   },
 ];
 
-function Pill({ children }) {
-  return (
-    <span
-      className="rounded-full bg-white/5 px-3 py-1 text-xs font-medium text-white/90
-                 ring-1 ring-white/10 shadow-[0_8px_24px_-12px_rgba(0,0,0,.55)]
-                 transition hover:bg-white/10 hover:ring-white/25"
-    >
-      {children}
-    </span>
-  );
-}
+export default function Projects() {
+  const [activeIndex, setActiveIndex] = useState(null);
 
-const Projects = () => {
-  return (
-    <section id="projects" className="px-6 py-12 md:py-25">
-      <div className="mx-auto max-w-[980px] md:max-w-4xl">
-        <div className="mb-6">
-          <div className="flex items-center gap-3">
-            <span className="text-xs sm:text-sm font-semibold uppercase tracking-[.25em] text-white/80">
-              Projectos
-            </span>
-            <span className="h-[2px] w-24 bg-emerald-400 rounded-full" />
-          </div>
-          <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight">
-            Meus Projectos
-          </h2>
-        </div>
+  const toggleAccordion = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
 
-        <div className="w-full grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p) => (
-            <div
+  return (
+    <section id="projects" className="relative px-6 py-28 overflow-hidden bg-gradient-to-b from-[#0a0a0f] via-[#101223] to-[#090b12]">
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-500/10 via-fuchsia-500/10 to-indigo-500/10 blur-3xl"></div>
+
+      <div className="relative z-10 mx-auto max-w-6xl text-center">
+        <motion.h2
+          className="text-3xl sm:text-5xl font-extrabold mb-10 bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent"
+          initial={{ opacity: 0, y: -40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          Meus Projetos
+        </motion.h2>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {projects.map((p, i) => (
+            <motion.div
               key={p.title}
-              className="group relative rounded-3xl p-[2px]
-                         bg-gradient-to-br from-cyan-500/60 via-fuchsia-500/40 to-indigo-500/60
-                         shadow-[0_20px_60px_-15px_rgba(0,0,0,.6)]
-                         transition-transform duration-300 hover:-translate-y-1"
+              className="group relative bg-gradient-to-br from-cyan-500/20 via-fuchsia-500/10 to-indigo-500/20 p-[2px] rounded-3xl shadow-[0_15px_60px_-15px_rgba(0,0,0,.6)] cursor-pointer hover:scale-[1.02] transition-transform"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.2 }}
+              onClick={() => toggleAccordion(i)}
             >
-              <div className="h-full overflow-hidden rounded-[calc(1.5rem-2px)] bg-slate-900/70 ring-1 ring-white/10 backdrop-blur-xl">
-                <div className="relative overflow-hidden">
-                  <img
-                    src={p.image}
-                    alt={`Preview do projecto ${p.title}`}
-                    className="h-48 w-full object-cover
-                               transition-transform duration-500 ease-out group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
-                </div>
+              <div className="rounded-[calc(1.5rem-2px)] bg-slate-900/80 ring-1 ring-white/10 backdrop-blur-xl overflow-hidden flex flex-col h-full">
+                <motion.img
+                  src={p.image}
+                  alt={p.title}
+                  className="h-48 w-full object-cover rounded-t-[calc(1.5rem-2px)] transition-transform duration-700 group-hover:scale-110"
+                />
 
-                <div className="p-5">
-                  <h3 className="text-lg font-bold">{p.title}</h3>
-                  <p className="mt-2 text-sm text-white/80 leading-relaxed ">
-                    {p.description}
-                  </p>
+                <div className="p-5 flex flex-col flex-1 justify-between">
+                  <div>
+                    <h3 className="text-lg font-bold text-white flex justify-between items-center">
+                      {p.title}
+                      <motion.div
+                        animate={{ rotate: activeIndex === i ? 180 : 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <FaChevronDown className="text-cyan-400 text-sm" />
+                      </motion.div>
+                    </h3>
+                    <p className="mt-2 text-sm text-white/80">{p.description}</p>
 
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {p.techs.map((t) => (
-                      <Pill key={t}>{t}</Pill>
-                    ))}
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {p.techs.map((t) => (
+                        <span
+                          key={t}
+                          className="rounded-full bg-white/5 px-3 py-1 text-xs text-white/80 ring-1 ring-white/10"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
-                  <div className="mt-6">
+                  {/* Links rápidos */}
+                  <div className="mt-5 flex items-center gap-4 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <a
                       href={p.repo}
                       target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold
-                                 bg-gradient-to-r from-cyan-500 to-fuchsia-500
-                                 shadow-[0_10px_30px_-10px_rgba(56,189,248,.6)]
-                                 hover:shadow-[0_16px_40px_-12px_rgba(217,70,239,.55)]
-                                 transition-transform active:scale-95"
+                      className="flex items-center gap-2 text-sm text-cyan-300 hover:text-white transition-all"
                     >
-                      Ver código <span aria-hidden>↗</span>
+                      <FaGithub /> Código
+                    </a>
+                    <a
+                      href={p.live}
+                      target="_blank"
+                      className="flex items-center gap-2 text-sm text-fuchsia-300 hover:text-white transition-all"
+                    >
+                      <FaExternalLinkAlt /> Live
                     </a>
                   </div>
                 </div>
-              </div>
 
-              <span className="pointer-events-none absolute -inset-8 -z-10 rounded-[2rem]
-                               bg-[radial-gradient(40%_40%_at_10%_0%,rgba(34,211,238,.22),transparent_60%),radial-gradient(35%_35%_at_100%_60%,rgba(99,102,241,.22),transparent_60%)]
-                               blur-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            </div>
+                {/* === Accordion expandido === */}
+                <AnimatePresence>
+                  {activeIndex === i && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.4 }}
+                      className="border-t border-white/10 p-5 text-left bg-slate-800/60"
+                    >
+                      <p className="text-sm text-white/70 leading-relaxed">
+                        Este projeto foi desenvolvido com foco em escalabilidade e design moderno.  
+                        O objetivo foi criar uma aplicação prática e intuitiva, com uma stack optimizada 
+                        para performance e experiência do utilizador.
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
   );
-};
-
-export default Projects;
+}

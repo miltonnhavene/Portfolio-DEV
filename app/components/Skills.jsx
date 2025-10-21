@@ -1,132 +1,160 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
+import {
+  FaJava,
+  FaJsSquare,
+  FaNodeJs,
+  FaBootstrap,
+  FaGitAlt,
+  FaGithub,
+  FaGitlab,
+  FaDatabase,
+  FaFigma,
+} from "react-icons/fa";
+import {
+  SiTypescript,
+  SiSpringboot,
+  SiTailwindcss,
+  SiPostman,
+  SiIntellijidea,
+  SiNextdotjs,
+  SiAngular,
+  SiPostgresql,
+} from "react-icons/si";
+import { VscVscode } from "react-icons/vsc";
+import { GrMysql } from "react-icons/gr";
+
 
 const softwares = [
-    "VS Code",
-    "IntelliJ IDEA",
-    "Postman",
-    "Figma",
-    "DBeaver",
+  { name: "VS Code", icon: VscVscode  },
+  { name: "IntelliJ IDEA", icon: SiIntellijidea },
+  { name: "Postman", icon: SiPostman },
+  { name: "Figma", icon: FaFigma },
+  { name: "DBeaver", icon: FaDatabase },
 ];
 
-const tecnologias = [
-    "JavaScript",
-    "TypeScript",
-    "Java",
-    "Angular",
-    "Next.js",
-    "Node.js",
-    "Spring Boot",
-    "HTML5",
-    "CSS3",
-    "Tailwind CSS",
-    "Bootstrap",
-    "Git",
-    "GitHub",
-    "GitLab",
-    "PostgreSQL",
+const technologies = [
+  { name: "JavaScript", icon: FaJsSquare },
+  { name: "TypeScript", icon: SiTypescript },
+  { name: "Java", icon: FaJava },
+  { name: "Angular", icon: SiAngular },
+  { name: "Next.js", icon: SiNextdotjs },
+  { name: "Node.js", icon: FaNodeJs },
+  { name: "Spring Boot", icon: SiSpringboot },
+  { name: "Tailwind CSS", icon: SiTailwindcss },
+  { name: "Bootstrap", icon: FaBootstrap },
+  { name: "Git", icon: FaGitAlt },
+  { name: "GitHub", icon: FaGithub },
+  { name: "GitLab", icon: FaGitlab },
+  { name: "PostgreSQL", icon: SiPostgresql },
+  { name: "MySQL", icon: GrMysql  },
 ];
-
-function Pill({ label }) {
-    return (
-        <div
-            className="group relative isolate rounded-full
-                 bg-white/5 px-4 py-2 ring-1 ring-white/10
-                 transition-all duration-200 hover:-translate-y-0.5
-                 hover:bg-white/10 hover:ring-white/25
-                 shadow-[0_8px_24px_-12px_rgba(0,0,0,.55)]"
-            aria-label={label}
-            title={label}
-        >
-            <span className="pointer-events-none absolute inset-0 -z-10 rounded-full opacity-0
-                       bg-[radial-gradient(60%_100%_at_20%_0%,rgba(56,189,248,.25),transparent_70%)]
-                       transition-opacity duration-200 group-hover:opacity-100" />
-            <span className="text-sm font-medium text-white/90">{label}</span>
-        </div>
-    );
-}
 
 export default function Skills() {
-    return (
-        <section id="skills" className="px-6 py-16 md:py-20">
-            <div className="mx-auto max-w-[980px] md:max-w-4xl">
-                <header className="mb-8">
-                    <div className="flex items-center gap-3">
-                        <span className="text-xs sm:text-sm font-semibold uppercase tracking-[.25em] text-white/80">
-                            Habilidades
-                        </span>
-                        <span className="h-[2px] w-24 bg-emerald-400 rounded-full"></span>
-                    </div>
-                    <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight">
-                        HABILIDADES TÉCNICAS
-                    </h2>
-                </header>
+  return (
+    <section id="skills" className="relative px-6 py-20 md:py-24 overflow-hidden bg-gradient-to-b from-[#0a0a0f] via-[#101223] to-[#090b12]">
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-500/10 via-fuchsia-500/10 to-indigo-500/10 blur-3xl"></div>
 
+      <div className="relative z-10 mx-auto max-w-4xl text-center flex flex-col gap-14">
+        <motion.h2
+          className="text-3xl sm:text-4xl font-extrabold mb-3 bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          HABILIDADES TÉCNICAS
+        </motion.h2>
+        <motion.div
+          className="bg-gradient-to-br from-[#1a1a2e]/40 to-[#151521]/60 border border-white/10 rounded-2xl p-6 md:p-6 backdrop-blur-xl shadow-xl text-left"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h3 className="text-2xl font-bold text-cyan-300 mb-4">Resumo</h3>
+          <p className="text-white/80 leading-relaxed text-sm sm:text-base text-justify">
+            Com uma base sólida em desenvolvimento de software, mantenho uma visão cuidadosa e a mentalidade de
+            “aprender sempre”. Estou constantemente a evoluir, acompanhando as melhores práticas do sector para
+            entregar soluções estáveis, acessíveis e com foco na experiência do utilizador.
+          </p>
+        </motion.div>
 
-                <div className="rounded-[calc(2.5rem-2px)] h-full bg-slate-900/70 ring-1 ring-white/10 backdrop-blur-xl p-8 mb-10">
-                    <div className="flex items-start justify-between">
-                        <h3 className="text-xl font-bold">Resumo</h3>
-                        <span className="h-1 w-1 rounded-full bg-sky-400/70 shadow-[0_0_24px_2px_rgba(56,189,248,.6)]" />
-                    </div>
+        <div className="grid md: gap-10">
+          <motion.div
+            className="bg-gradient-to-br from-cyan-500/30 via-fuchsia-500/20 to-indigo-500/30 p-[1px] rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,.7)]"
+            whileHover={{ scale: 1.02 }}
+          >
+            <div className="bg-slate-900/80 backdrop-blur-xl rounded-3xl p-8 h-full">
+              <motion.h3
+                className="text-2xl font-bold text-emerald-300 mb-4 gap-2"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+              >
+              Softwares com os quais trabalho
+              </motion.h3>
 
-                    <p className="mt-3 text-white/80 text-sm leading-relaxed text-justify">
-                    Com uma base sólida em desenvolvimento de software, levo uma visão cuidadosa e mantenho a mentalidade de “aprender sempre”. Estou constantemente a aprender e a evoluir, acompanhando as melhores práticas e tendências do sector, para entregar soluções estáveis, acessíveis e com foco na experiência do utilizador. 
+              <p className="text-white/70 text-sm leading-relaxed mb-6 text-justify">
+               Com menos de 1 ano de experiência na criação de projectos de software, 
+               desenvolvi um entendimento intuitivo de como os melhores produtos são projetados. 
+               Abaixo estão alguns dos softwares que utilizo no dia a dia.
+              </p>
 
-                    </p>
-                </div>
-
-                <div className="grid gap-6 md:grid-cols-2">
-                    <div
-                        className="group relative rounded-3xl p-[2px]
-                       bg-gradient-to-br from-cyan-500/50 via-fuchsia-500/30 to-indigo-500/50
-                       shadow-[0_16px_50px_-18px_rgba(0,0,0,.6)]
-                       transition-transform duration-300 hover:-translate-y-1"
-                    >
-                        <div className="rounded-[calc(1.5rem-2px)] h-full bg-slate-900/70 ring-1 ring-white/10 backdrop-blur-xl p-6">
-                            <div className="flex items-start justify-between">
-                                <h3 className="text-xl font-bold">Softwares com os quais trabalho</h3>
-                                <span className="h-2 w-2 rounded-full bg-emerald-400/70 shadow-[0_0_24px_2px_rgba(52,211,153,.6)]" />
-                            </div>
-
-                            <p className="mt-3 text-white/80 text-sm leading-relaxed text-justify">
-                                Com menos de 1 ano de experiência na criação de projectos de software,
-                                desenvolvi um entendimento intuitivo de como os melhores produtos são
-                                projetados. Abaixo estão alguns dos softwares que utilizo no dia a dia.
-                            </p>
-
-                            <div className="mt-5 grid grid-cols-2 gap-3">
-                                {softwares.map((label) => (
-                                    <Pill key={label} label={label} />
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        className="group relative rounded-3xl p-[2px]
-                       bg-gradient-to-br from-sky-500/50 via-violet-500/30 to-teal-500/50
-                       shadow-[0_16px_50px_-18px_rgba(0,0,0,.6)]
-                       transition-transform duration-300 hover:-translate-y-1"
-                    >
-                        <div className="rounded-[calc(1.5rem-2px)] h-full bg-slate-900/70 ring-1 ring-white/10 backdrop-blur-xl p-6">
-                            <div className="flex items-start justify-between">
-                                <h3 className="text-xl font-bold">Tecnologias com as quais trabalho</h3>
-                                <span className="h-2 w-2 rounded-full bg-sky-400/70 shadow-[0_0_24px_2px_rgba(56,189,248,.6)]" />
-                            </div>
-
-                            <p className="mt-3 text-white/80 text-sm leading-relaxed text-justify">
-                            Tenho paixão por transformar problemas em soluções com código. Atuo em toda a stack — do front-end ao back-end e às integrações de APIs — sempre com foco em clareza e performance. Gosto de enfrentar desafios e traduzi-los em resultados práticos.
-
-                            </p>
-
-                            <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 gap-3">
-                                {tecnologias.map((label) => (
-                                    <Pill key={label} label={label} />
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              <div className="flex flex-wrap justify-center gap-4">
+                {softwares.map(({ name, icon: Icon }, i) => (
+                  <motion.div
+                    key={name}
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 ring-1 ring-white/10 text-white/90 text-sm hover:bg-white/10 transition-all shadow-[0_8px_25px_-10px_rgba(0,0,0,.6)]"
+                    whileHover={{ scale: 1.1, rotate: 2 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                  >
+                    <Icon size={18} />
+                    {name}
+                  </motion.div>
+                ))}
+              </div>
             </div>
-        </section>
-    );
+          </motion.div>
+          <motion.div
+            className="bg-gradient-to-br from-sky-500/30 via-violet-500/20 to-teal-500/30 p-[1px] rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,.7)]"
+            whileHover={{ scale: 1.02 }}
+          >
+            <div className="bg-slate-900/80 backdrop-blur-xl rounded-3xl p-8 h-full">
+              <motion.h3
+                className="text-2xl font-bold text-sky-300 mb-6 flex items-center justify-center gap-2"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+              >
+              Tecnologias com as quais trabalho
+              </motion.h3>
+
+              <p className="text-white/70 text-sm leading-relaxed mb-6 text-justify">
+                Tenho paixão por transformar problemas em soluções com código. 
+                Atuo em toda a stack — do front-end ao back-end e às integrações de APIs — sempre com foco em clareza e performance. 
+                Gosto de enfrentar desafios e traduzi-los em resultados práticos.
+              </p>
+
+              <div className="flex flex-wrap justify-center gap-4">
+                {technologies.map(({ name, icon: Icon }, i) => (
+                  <motion.div
+                    key={name}
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 ring-1 ring-white/10 text-white/90 text-sm hover:bg-white/10 transition-all shadow-[0_8px_25px_-10px_rgba(0,0,0,.6)]"
+                    whileHover={{ scale: 1.1, rotate: -2 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.03 }}
+                  >
+                    <Icon size={18} />
+                    {name}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
 }
