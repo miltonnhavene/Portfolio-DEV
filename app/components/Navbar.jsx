@@ -45,14 +45,6 @@ const Navbar = () => {
         </ul>
 
         <div className="flex items-center gap-2 md:gap-3">
-          <button
-            aria-label="Alternar tema"
-            className="grid h-10 w-10 place-items-center rounded-full
-                       ring-1 ring-white/15 bg-white/5 hover:bg-white/10 transition"
-          >
-            <BsMoon size={18} aria-hidden />
-          </button>
-
           <Link
             href="/contact"
             className="hidden sm:inline-flex px-5 py-2 rounded-full font-semibold

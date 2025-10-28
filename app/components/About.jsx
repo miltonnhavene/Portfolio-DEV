@@ -109,8 +109,9 @@ export default function About() {
                 </motion.a>
               ))}
               <motion.a
-                href="/JoaoNhaveneCV.pdf"
-                download
+                href="/docs/CV - João Nhavene.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-3 py-2 rounded-full border border-cyan-400 text-cyan-300 hover:bg-cyan-400 hover:text-black transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -155,10 +156,10 @@ export default function About() {
               </li>
               <li>
                 <h5 className="text-lg font-semibold">
-                Informática e telecomunicações
+                  Informática e telecomunicações
                 </h5>
                 <p className="text-sm text-white/60">
-                Instituto Politecnico de Tecnlogia e Empreendedorismo, IPET
+                  Instituto Politecnico de Tecnlogia e Empreendedorismo, IPET
                 </p>
                 <span>2016-2019</span>
               </li>
@@ -177,13 +178,13 @@ export default function About() {
             <ul className="space-y-6 text-white/80">
               <li>
                 <h5 className="text-lg font-semibold mb-2">
-                  Balcão de Atendimento Único, IP | Engenheiro de Software - Estagíario 
+                  Balcão de Atendimento Único, IP | Engenheiro de Software - Estagíario
                 </h5>
                 <p className="text-sm text-white/60">Fevereiro 2025 - Setembro 2025</p>
               </li>
               <li>
                 <h5 className="text-lg font-semibold mb-2">
-                  VOLET Technologies S.A. | Desenvolvedor Frontend - Estagíario 
+                  VOLET Technologies S.A. | Desenvolvedor Frontend - Estagíario
                 </h5>
                 <p className="text-sm text-white/60">Março 2025 - Setembro 2025 - Remoto</p>
               </li>
